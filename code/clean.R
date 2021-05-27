@@ -18,6 +18,7 @@ events <- read_csv(
 
 lineups <- events %>% 
   select(-rowid) %>% 
+  dplyr::filter(club_id == 237) %>% 
   inner_join(
     select(artists, -rowid), by = c("club_id"="club_id", "event_id"="event_id")
   )
